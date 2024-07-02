@@ -16,9 +16,6 @@
     <loc>http://isaacbain.com/isaacr/articles/index.html</loc>
   </url>
   <url>
-    <loc>http://isaacbain.com/isaacr/articles/landcover_table.html</loc>
-  </url>
-  <url>
     <loc>http://isaacbain.com/isaacr/authors.html</loc>
   </url>
   <url>
@@ -35,6 +32,9 @@
   </url>
   <url>
     <loc>http://isaacbain.com/isaacr/reference/load_lcdb_symbology.html</loc>
+  </url>
+  <url>
+    <loc>http://isaacbain.com/isaacr/reference/load_lcdb_vector.html</loc>
   </url>
   <url>
     <loc>http://isaacbain.com/isaacr/reference/st_crop_bbox.html</loc>

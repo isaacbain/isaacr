@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://isaacbain.com/isaacr/404.html</loc>
+  </url>
+  <url>
+    <loc>http://isaacbain.com/isaacr/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>http://isaacbain.com/isaacr/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>http://isaacbain.com/isaacr/articles/LCDB-symbology.html</loc>
+  </url>
+  <url>
+    <loc>http://isaacbain.com/isaacr/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>http://isaacbain.com/isaacr/articles/landcover_table.html</loc>
+  </url>
+  <url>
+    <loc>http://isaacbain.com/isaacr/authors.html</loc>
+  </url>
+  <url>
+    <loc>http://isaacbain.com/isaacr/index.html</loc>
+  </url>
+  <url>
+    <loc>http://isaacbain.com/isaacr/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>http://isaacbain.com/isaacr/reference/load_lcdb_symbology.html</loc>
+  </url>
+  <url>
+    <loc>http://isaacbain.com/isaacr/reference/st_crop_bbox.html</loc>
+  </url>
+</urlset>

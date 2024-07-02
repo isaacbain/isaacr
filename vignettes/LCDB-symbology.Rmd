@@ -51,10 +51,11 @@ landcover_df |>
 
 Here's an example of how to use the LCDB symbology in ggplot2. Let's make a map of Christchurch. 
 
-```{r fig.height=6, fig.width=8}
+```{r fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
 library(ggplot2)
 library(sf)
 
+# for ggplot2, load named vector
 lcdb_colours_vector <- load_lcdb_vector()
 
 # Plot using ggplot2 with scale_fill_manual
@@ -63,12 +64,11 @@ ggplot(data = lcdb5_chch) + # lcdb5_chch available in the isaacr package, and it
   scale_fill_manual(values = lcdb_colours_vector) +
   theme_void() +
   theme(legend.position = "none")
-
 ```
 \
 And another one of Blenheim
 
-```{r fig.height=6, fig.width=8}
+```{r fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
 # Plot using ggplot2 with scale_fill_manual
 ggplot(data = lcdb5_blenheim) +
   geom_sf(aes(fill = as.factor(Class_2018)), color = NA) +

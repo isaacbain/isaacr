@@ -1,0 +1,50 @@
+---
+title: "LCDB-symbology"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{LCDB-symbology}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Purpose
+
+The goal of `lcdb_symbology` is to colour the symbology of the [Land Cover Database](https://lris.scinfo.org.nz/layer/104400-lcdb-v50-land-cover-database-version-50-mainland-new-zealand/) (LCDB) in a way that is consistent with the [Manaaki Whenua Landcare Research](https://www.landcareresearch.co.nz/)'s original symbology. They provided a .lyr file for ArcGIS, but this repo provides a way to use the same symbology in R.
+
+## Usage
+
+```{r setup}
+# load library
+library(isaacr)
+
+# load data 
+landcover_df <- load_lcdb_symbology()
+```
+
+## Table of colours
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+library(kableExtra)
+library(webshot2)
+
+# Display the table using kableExtra
+table_html <- landcover_df |> 
+  mutate(
+    ColourCell = cell_spec(Name, background = Colour, color = ifelse(Colour == "#000000", "white", "black"))
+  ) %>%
+  select(Class, ColourCell, Colour, Name) %>%
+  kable("html", escape = FALSE, col.names = c("Class Code", "Colour", "HEX Code", "Landcover Class")) %>%
+  kable_styling(full_width = FALSE, position = "left") %>%
+  save_kable(file = "landcover_table.html")
+
+# Take a screenshot of the table
+webshot("landcover_table.html", "landcover_table.png")
+```

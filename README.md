@@ -4,6 +4,11 @@
 # isaacr
 
 <!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/koordinatr)](https://CRAN.R-project.org/package=koordinatr)
 <!-- badges: end -->
 
 `isaacr` is an R package with miscellaneous R functions that are useful
@@ -18,14 +23,3 @@ You can install the development version of isaacr from
 # install.packages("devtools")
 devtools::install_github("isaacbain/isaacr")
 ```
-
-## Functions
-
-### LCDB symbology
-
-`load_lcdb_symbology()` returns a data frame with the symbology for the
-LCDB classes.
-
-### Crop sf by bounding box
-
-`st_crop_bbox()` crops an `sf` object by a bounding box.

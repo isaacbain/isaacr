@@ -22,3 +22,10 @@ devtools::install_github("isaacbain/isaacr")
 ## Functions
 
 ### LCDB symbology
+
+`load_lcdb_symbology()` returns a data frame with the symbology for the
+LCDB classes.
+
+### Crop sf by bounding box
+
+`st_crop_bbox()` crops an `sf` object by a bounding box.

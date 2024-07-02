@@ -9,6 +9,7 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/koordinatr)](https://CRAN.R-project.org/package=koordinatr)
+[![R-CMD-check](https://github.com/isaacbain/isaacr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/isaacbain/isaacr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 `isaacr` is an R package with an assortment of R functions that are

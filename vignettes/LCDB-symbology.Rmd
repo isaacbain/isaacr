@@ -49,7 +49,9 @@ landcover_df |>
 
 ## Examples
 
-Here's an example of how to use the LCDB symbology in ggplot2. Let's make a map of Christchurch. 
+### ggplot2
+
+Here's an example of how to use the LCDB symbology in ggplot2. Let's make a map of Christchurch, and another one of Blenheim. 
 
 ```{r fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
 library(ggplot2)
@@ -64,16 +66,46 @@ ggplot(data = lcdb5_chch) + # lcdb5_chch available in the isaacr package, and it
   scale_fill_manual(values = lcdb_colours_vector) +
   theme_void() +
   theme(legend.position = "none")
-```
-\
-And another one of Blenheim
 
-```{r fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
 # Plot using ggplot2 with scale_fill_manual
 ggplot(data = lcdb5_blenheim) +
   geom_sf(aes(fill = as.factor(Class_2018)), color = NA) +
   scale_fill_manual(values = lcdb_colours_vector) +
   theme_void() +
   theme(legend.position = "none")
+```
+
+### Leaflet 
+
+Here's an example of how to use the LCDB symbology in leaflet. 
+
+```{r fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
+library(leaflet)
+
+lcdb5_chch <- lcdb5_chch |> 
+  left_join(landcover_df, by = c("Class_2018" = "Class"))
+
+# Create a leaflet map of Christchurch
+leaflet(data = lcdb5_chch |> st_transform(4326)) %>%
+  addTiles() %>%
+  addPolygons(
+    fillColor = ~Colour,
+    weight = 0, # Border thickness
+    fillOpacity = 1,
+    popup = ~paste(Name)
+  )
+
+lcdb5_blenheim <- lcdb5_blenheim |> 
+  left_join(landcover_df, by = c("Class_2018" = "Class"))
+
+# Create a leaflet map of Blenheim
+leaflet(data = lcdb5_blenheim |> st_transform(4326)) %>%
+  addTiles() %>%
+  addPolygons(
+    fillColor = ~Colour,
+    weight = 0, # Border thickness
+    fillOpacity = 1,
+    popup = ~paste(Name)
+  )
 ```
 

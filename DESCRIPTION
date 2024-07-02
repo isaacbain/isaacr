@@ -16,6 +16,7 @@ Suggests:
     ggplot2,
     kableExtra,
     knitr,
+    leaflet,
     rmarkdown,
     spelling,
     webshot2

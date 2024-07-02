@@ -23,3 +23,8 @@ You can install the development version of isaacr from
 # install.packages("devtools")
 devtools::install_github("isaacbain/isaacr")
 ```
+
+## Documentation
+
+The main documentation for `isaacr` can be found at
+[isaacbain.com/isaacr](https://isaacbain.com/isaacr/).

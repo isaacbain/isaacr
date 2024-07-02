@@ -39,7 +39,7 @@ load.rivers <- function(df = "data/REC2_geodata_version_5/nzRec2_v5.gdb", layer 
 #' @examples
 trace_upstream <- function(df, start_segment, max_distance = Inf, current_distance = 0) {
   # Find the current segment details
-  current_segment <- df %>% filter(nzsegment == start_segment)
+  current_segment <- df |> dplyr::filter(nzsegment == start_segment)
 
   # Base case: If no upstream segment is found or max distance is reached
   if (is.na(current_segment$FROM_NODE) || current_distance >= max_distance) {
@@ -47,7 +47,7 @@ trace_upstream <- function(df, start_segment, max_distance = Inf, current_distan
   }
 
   # Recursive case: Find upstream segments
-  upstream_segments <- df %>% filter(TO_NODE == current_segment$FROM_NODE)
+  upstream_segments <- df |> dplyr::filter(TO_NODE == current_segment$FROM_NODE)
 
   # Recursively call the function for each upstream segment and combine results
   results <- current_segment

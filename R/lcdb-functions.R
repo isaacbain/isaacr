@@ -36,3 +36,15 @@ load_lcdb_symbology <- function() {
 
   return(landcover_df)
 }
+
+#' Load named vector of LCDB colours
+#'
+#' @return A named vector of LCDB colours
+#' @export
+#'
+#' @examples
+load_lcdb_vector <- function() {
+  lcdb_colours <- load_lcdb_symbology()
+  lcdb_vector <- stats::setNames(lcdb_colours$Colour, lcdb_colours$Class)
+  return(lcdb_vector)
+}

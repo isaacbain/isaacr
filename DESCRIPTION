@@ -1,6 +1,6 @@
 Package: isaacr
 Title: A package with Isaac Bain's personal R code
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
     person("Isaac", "Bain", , "isaacbain@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-6755-3721"))
@@ -12,7 +12,6 @@ RoxygenNote: 7.3.2.9000
 URL: https://github.com/isaacbain/isaacr, http://isaacbain.com/isaacr/
 BugReports: https://github.com/isaacbain/isaacr/issues
 Suggests: 
-    dplyr,
     ggplot2,
     kableExtra,
     knitr,
@@ -22,6 +21,7 @@ Suggests:
     webshot2
 Language: en-GB
 Imports: 
+    dplyr,
     sf
 VignetteBuilder: knitr
 Depends: 

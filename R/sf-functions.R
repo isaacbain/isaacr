@@ -49,3 +49,29 @@ st_create_hexagon <- function(center, radius, rotation = 0, crs = 2193) {
   return(hexagon_sf)
 }
 
+#' Import folder of tifs and clip by polygon
+#'
+#' @param tif_folder Folder where your raster files are stored
+#' @param polygon_spatvector Polygon to clip the rasters to
+#'
+#' @return A clipped raster
+#' @export
+#'
+#' @examples
+import_clip_raster <- function(tif_folder, polygon_spatvector) {
+  # List all tif files in the specified folder
+  tif_files <- list.files(path = tif_folder, pattern = "\\.tif$", full.names = TRUE)
+
+  # Read all tif files into a list
+  raster_list <- lapply(tif_files, terra::rast)
+
+  # Merge the rasters using do.call and terra::mosaic
+  merged_raster <- do.call(terra::mosaic, raster_list)
+
+  # Clip the merged raster by the specified polygon
+  clipped_raster <- terra::crop(merged_raster, polygon_spatvector)
+  clipped_raster <- terra::mask(clipped_raster, polygon_spatvector)
+
+  return(clipped_raster)
+}
+

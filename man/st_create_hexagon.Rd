@@ -22,6 +22,8 @@ A hexagon sf object
 Function to create a hexagon with a given radius, center, and rotation
 }
 \examples{
+\dontrun{
 hexagon_sf <- create_hexagon(center = c(1600000, 5500000), radius = 100000, rotation = pi/8, crs = 2193)
+}
 
 }

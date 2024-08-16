@@ -9,7 +9,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' hexagon_sf <- create_hexagon(center = c(1600000, 5500000), radius = 100000, rotation = pi/8, crs = 2193)
+#' }
 #'
 st_create_hexagon <- function(center, radius, rotation = 0, crs = 2193) {
   # Define the angles for the vertices (in radians)
@@ -89,7 +91,7 @@ import_clip_raster <- function(tif_folder, polygon_spatvector) {
 #' @examples
 #' \dontrun{
 #' # Example usage: Create a rectangle with width 1000 meters and height 500 meters centered at (1577107, 5173732) in NZTM2000
-#' rectangle_sf <- rect_around_point(center = c(1577107, 5173732), xsize = 1000, ysize = 500)
+#' rectangle_sf <- st_create_rectangle(center = c(1577107, 5173732), xsize = 1000, ysize = 500)
 #'
 #' # Plot the rectangle
 #' plot(rectangle_sf)
@@ -97,7 +99,7 @@ import_clip_raster <- function(tif_folder, polygon_spatvector) {
 #'
 #' @import sf
 #' @export
-rect_around_point <- function(center, xsize, ysize, crs = 2193) {
+st_create_rectangle <- function(center, xsize, ysize, crs = 2193) {
   # Calculate the corner points based on the center and sizes
   x_min <- center[1] - xsize / 2
   x_max <- center[1] + xsize / 2

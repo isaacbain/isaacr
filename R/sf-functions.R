@@ -75,3 +75,52 @@ import_clip_raster <- function(tif_folder, polygon_spatvector) {
   return(clipped_raster)
 }
 
+#' Create a Rectangle around a Point
+#'
+#' This function creates a rectangle of specified width and height, centered on a given point.
+#'
+#' @param center A numeric vector of length 2 specifying the x and y coordinates of the center of the rectangle (e.g., c(x, y)).
+#' @param xsize Numeric, the total width of the rectangle (in the same units as the coordinate reference system, typically meters).
+#' @param ysize Numeric, the total height of the rectangle (in the same units as the coordinate reference system, typically meters).
+#' @param crs Numeric, the coordinate reference system (CRS) of the output geometry. Default is EPSG:2193 (NZTM2000).
+#'
+#' @return An `sf` object representing the rectangle polygon.
+#'
+#' @examples
+#' \dontrun{
+#' # Example usage: Create a rectangle with width 1000 meters and height 500 meters centered at (1577107, 5173732) in NZTM2000
+#' rectangle_sf <- rect_around_point(center = c(1577107, 5173732), xsize = 1000, ysize = 500)
+#'
+#' # Plot the rectangle
+#' plot(rectangle_sf)
+#' }
+#'
+#' @import sf
+#' @export
+rect_around_point <- function(center, xsize, ysize, crs = 2193) {
+  # Calculate the corner points based on the center and sizes
+  x_min <- center[1] - xsize / 2
+  x_max <- center[1] + xsize / 2
+  y_min <- center[2] - ysize / 2
+  y_max <- center[2] + ysize / 2
+
+  # Define the coordinates of the rectangle's vertices
+  rect_coords <- matrix(c(
+    x_min, y_min,  # bottom-left
+    x_max, y_min,  # bottom-right
+    x_max, y_max,  # top-right
+    x_min, y_max,  # top-left
+    x_min, y_min   # closing the rectangle
+  ), ncol = 2, byrow = TRUE)
+
+  # Create the rectangle as an sf polygon
+  rectangle <- st_polygon(list(rect_coords))
+
+  # Convert to an sf object
+  rectangle_sf <- st_sfc(rectangle, crs = crs)
+
+  # Wrap it in an sf data frame
+  rectangle_sf <- st_sf(geometry = rectangle_sf)
+
+  return(rectangle_sf)
+}

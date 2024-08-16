@@ -57,6 +57,8 @@ st_create_hexagon <- function(center, radius, rotation = 0, crs = 2193) {
 #' @param polygon_spatvector Polygon to clip the rasters to
 #'
 #' @return A clipped raster
+#'
+#' @import terra
 #' @export
 #'
 #' @examples

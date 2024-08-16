@@ -22,7 +22,8 @@ Suggests:
 Language: en-GB
 Imports: 
     dplyr,
-    sf
+    sf,
+    terra
 VignetteBuilder: knitr
 Depends: 
     R (>= 2.10)

@@ -14,8 +14,8 @@
 #' }
 #'
 st_create_hexagon <- function(center, radius, rotation = 0, crs = 2193) {
-  # Define the angles for the vertices (in radians)
-  angles <- seq(0, 2 * pi, length.out = 7)
+  # Define the angles for the vertices (in radians) with one vertex pointing straight up
+  angles <- seq(pi / 2, 2 * pi + pi / 2, length.out = 7)
 
   # Calculate the coordinates of the hexagon vertices before rotation
   hexagon_coords <- cbind(

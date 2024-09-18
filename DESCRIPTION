@@ -22,6 +22,8 @@ Suggests:
 Language: en-GB
 Imports: 
     dplyr,
+    raster,
+    rayshader,
     sf,
     terra
 VignetteBuilder: knitr

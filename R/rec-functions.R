@@ -6,7 +6,6 @@
 #' @return An sf object with the REC watershed data
 #' @export
 #'
-#' @examples
 load.ws <- function(df = "data/REC2_geodata_version_5/nzRec2_v5.gdb", layer = "rec2ws"){
   rec_ws <<- sf::st_read(dsn = df,
                          layer = layer)
@@ -20,7 +19,6 @@ load.ws <- function(df = "data/REC2_geodata_version_5/nzRec2_v5.gdb", layer = "r
 #' @return An sf object with the REC river data
 #' @export
 #'
-#' @examples
 load.rivers <- function(df = "data/REC2_geodata_version_5/nzRec2_v5.gdb", layer = "riverlines"){
   rec_rivers <<- sf::st_read(dsn = df,
                              layer = layer)
@@ -36,7 +34,6 @@ load.rivers <- function(df = "data/REC2_geodata_version_5/nzRec2_v5.gdb", layer 
 #' @return A list of segments which are upstream of the starting segment
 #' @export
 #'
-#' @examples
 trace_upstream <- function(df, start_segment, max_distance = Inf, current_distance = 0) {
   # Find the current segment details
   current_segment <- df |> dplyr::filter(nzsegment == start_segment)

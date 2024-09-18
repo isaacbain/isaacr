@@ -61,7 +61,6 @@ st_create_hexagon <- function(center, radius, rotation = 0, crs = 2193) {
 #' @import terra
 #' @export
 #'
-#' @examples
 import_clip_raster <- function(tif_folder, polygon_spatvector) {
   # List all tif files in the specified folder
   tif_files <- list.files(path = tif_folder, pattern = "\\.tif$", full.names = TRUE)
@@ -142,11 +141,10 @@ st_create_rectangle <- function(center, xsize, ysize, crs = 2193) {
 #' @import raster
 #' @import rayshader
 #'
-#' @examples
 create_multicolour_stl <- function(df, elev, inverse = FALSE) {
   df_raster <- raster::rasterize(df, elev)
   df_raster <- raster::mask(elev, df_raster, inverse = inverse)
-  df_mat <- rayshader::aster_to_matrix(df_raster)
+  df_mat <- rayshader::raster_to_matrix(df_raster)
 
   return(df_mat)
 }

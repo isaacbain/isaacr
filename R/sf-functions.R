@@ -128,3 +128,25 @@ st_create_rectangle <- function(center, xsize, ysize, crs = 2193) {
 
   return(rectangle_sf)
 }
+
+
+#' Create multi-colour
+#'
+#' @param df Sf polygon to rasterize
+#' @param elev The elevation raster
+#' @param inverse Inverse the mask TRUE/FALSE
+#'
+#' @return Matrix
+#' @export
+#'
+#' @import raster
+#' @import rayshader
+#'
+#' @examples
+create_multicolour_stl <- function(df, elev, inverse = FALSE) {
+  df_raster <- raster::rasterize(df, elev)
+  df_raster <- raster::mask(elev, df_raster, inverse = inverse)
+  df_mat <- rayshader::aster_to_matrix(df_raster)
+
+  return(df_mat)
+}
